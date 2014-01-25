@@ -1,3 +1,5 @@
+"use strict";
+
 var request = require('request')
 var through = require('through')
 var m3u8 = require('m3u8')
