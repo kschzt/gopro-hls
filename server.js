@@ -8,6 +8,7 @@ var goProHlsUrl = 'http://10.5.5.9:8080/live/amba.m3u8'
 var video = require('./hls-stream')(goProHlsUrl)
 
 var template = fs.readFileSync('./gopro.m3u8')
+var indexHtml = fs.readFileSync('./index.html')
 
 var app = connect()
 
@@ -35,17 +36,12 @@ var app = connect()
 	})
 
 	.use('/', function(req, res) {
-		var str =   '<html><body>'+
-			'<video width="432" height="240" autoplay="true" controls="true">'+
-				'<source src="gopro.m3u8" type="video/mp4"/>'+
-			'</video></body></html>';
-
 		res.writeHead(200, {
 			'Content-Type': 'text/html',
-			'Content-Length': str.length
+			'Content-Length': indexHtml.length
 		})
 
-		res.end(str);
+		res.end(indexHtml);
 	})
 
 	.use(connect.errorHandler())
