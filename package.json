@@ -1,0 +1,17 @@
+{
+  "name": "gopro-hls",
+  "version": "0.0.1",
+  "description": "Combine a multi-file GoPro HLS stream into one stream and serve via HTTP",
+  "main": "hls-stream.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "author": "kschzt",
+  "dependencies": {
+    "connect": "~2.12.0",
+    "request": "~2.33.0",
+    "m3u8": "0.0.6",
+    "through": "~2.3.4"
+  }
+}
